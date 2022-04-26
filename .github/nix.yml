@@ -1,0 +1,33 @@
+name: nix
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: "nix build"
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Nix Flakes doesn't work on shallow clones
+          fetch-depth: 0
+      - uses: cachix/install-nix-action@v17
+      - run: nix build
+
+  fmt:
+    runs-on: ubuntu-latest
+    name: "fmt"
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Nix Flakes doesn't work on shallow clones
+          fetch-depth: 0
+      - uses: cachix/install-nix-action@v17
+      - run: nix develop .#fmtShell --command treefmt --fail-on-change

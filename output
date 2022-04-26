@@ -1,0 +1,148 @@
+
+completion: require("completion.health").check()
+========================================================================
+  - ERROR: Failed to run healthcheck for "completion" plugin. Exception:
+    function health#check, line 20
+    Vim(eval):E5108: Error executing lua [string "luaeval()"]:1: attempt to call field 'check' (a nil value)
+    stack traceback:
+    [string "luaeval()"]:1: in main chunk
+
+completion_nvim: health#completion_nvim#check
+========================================================================
+## general
+  - OK: neovim version is supported
+
+## completion source
+  - OK: all completion sources are valid
+
+## snippet source
+  - OK: You are using UltiSnips as your snippet source
+
+nvim: health#nvim#check
+========================================================================
+## Configuration
+  - OK: no issues found
+
+## Performance
+  - OK: Build type: Release
+
+## Remote Plugins
+  - OK: Up to date
+
+## terminal
+  - INFO: key_backspace (kbs) terminfo entry: key_backspace=^H
+  - INFO: key_dc (kdch1) terminfo entry: key_dc=\E[3~
+  - INFO: $COLORTERM='truecolor'
+
+nvim-treesitter: require("nvim-treesitter.health").check()
+========================================================================
+## Installation
+  - OK: `tree-sitter` found 0.20.6 (parser generator, only needed for :TSInstallFromGrammar)
+  - OK: `node` found v16.14.2 (only needed for :TSInstallFromGrammar)
+  - OK: `git` executable found.
+  - OK: `cc` executable found. Selected from { vim.NIL, "cc", "gcc", "clang", "cl", "zig" }
+    Version: gcc (GCC) 10.3.0
+  - OK: Neovim was compiled with tree-sitter runtime ABI version 14 (required >=13). Parsers must be compatible with runtime ABI.
+
+## Parser/Features H L F I J
+  - python         ✓ ✓ ✓ ✓ ✓ 
+  - bash           ✓ ✓ ✓ . ✓ 
+  - nix            ✓ ✓ ✓ . ✓ 
+  - rust           ✓ ✓ ✓ ✓ ✓ 
+  - c              ✓ ✓ ✓ ✓ ✓ 
+  - lua            ✓ ✓ ✓ ✓ ✓ 
+  - latex          x . x . x 
+
+  Legend: H[ighlight], L[ocals], F[olds], I[ndents], In[j]ections
+         +) multiple parsers found, only one will be used
+         x) errors found in the query, try to run :TSUpdate {lang}
+
+## The following errors have been detected:
+  - ERROR: latex(highlights): ...d-master/share/nvim/runtime/lua/vim/treesitter/query.lua:172: query: invalid node type at position 97
+    latex(highlights) is concatenated from the following files:
+    | [ERROR]:"/nix/store/b6ajmmb35dmkxlfs4jq9fii20fdzc9kk-vimplugin-nvim-treesitter-2022-03-27/queries/latex/highlights.scm", failed to load: ...d-master/share/nvim/runtime/lua/vim/treesitter/query.lua:172: query: invalid node type at position 97
+  - ERROR: latex(folds): ...d-master/share/nvim/runtime/lua/vim/treesitter/query.lua:172: query: invalid node type at position 103
+    latex(folds) is concatenated from the following files:
+    | [ERROR]:"/nix/store/b6ajmmb35dmkxlfs4jq9fii20fdzc9kk-vimplugin-nvim-treesitter-2022-03-27/queries/latex/folds.scm", failed to load: ...d-master/share/nvim/runtime/lua/vim/treesitter/query.lua:172: query: invalid node type at position 103
+  - ERROR: latex(injections): ...d-master/share/nvim/runtime/lua/vim/treesitter/query.lua:172: query: invalid node type at position 4
+    latex(injections) is concatenated from the following files:
+    | [ERROR]:"/nix/store/b6ajmmb35dmkxlfs4jq9fii20fdzc9kk-vimplugin-nvim-treesitter-2022-03-27/queries/latex/injections.scm", failed to load: ...d-master/share/nvim/runtime/lua/vim/treesitter/query.lua:172: query: invalid node type at position 4
+
+provider: health#provider#check
+========================================================================
+## Clipboard (optional)
+  - OK: Clipboard tool found: xclip
+
+## Python 3 provider (optional)
+  - INFO: Using: g:python3_host_prog = "/nix/store/v4zwm1b2r5f9q67m3x8chs47h9qv9m93-neovim-master/bin/nvim-python3"
+  - INFO: Executable: /nix/store/v4zwm1b2r5f9q67m3x8chs47h9qv9m93-neovim-master/bin/nvim-python3
+  - INFO: Python version: 3.9.10
+  - INFO: pynvim version: 0.4.3
+  - OK: Latest pynvim is installed.
+
+## Python virtualenv
+  - OK: no $VIRTUAL_ENV
+
+## Ruby provider (optional)
+  - INFO: Ruby: ruby 2.7.5p203 (2021-11-24) [x86_64-linux]
+  - INFO: Host: /nix/store/v4zwm1b2r5f9q67m3x8chs47h9qv9m93-neovim-master/bin/nvim-ruby
+  - WARNING: Gem "neovim" is out-of-date. Installed: 0.8.1, latest: 0.9.0
+    - ADVICE:
+      - Run in shell: gem update neovim
+
+## Node.js provider (optional)
+  - INFO: Node.js: v16.14.2
+  - INFO: Nvim node.js host: /nix/store/v4zwm1b2r5f9q67m3x8chs47h9qv9m93-neovim-master/bin/nvim-node
+  - OK: Latest "neovim" npm/yarn package is installed: 4.10.1
+
+## Perl provider (optional)
+  - WARNING: "Neovim::Ext" cpan module is not installed
+    - ADVICE:
+      - See :help |provider-perl| for more information.
+      - You may disable this provider (and warning) by adding `let g:loaded_perl_provider = 0` to your init.vim
+
+telescope: require("telescope.health").check()
+========================================================================
+## Checking for required plugins
+  - OK: plenary installed.
+  - OK: nvim-treesitter installed.
+
+## Checking external dependencies
+  - OK: rg: found ripgrep 13.0.0
+  - OK: fd: found fd 8.3.2
+
+## ===== Installed extensions =====
+
+vim.lsp: require("vim.lsp.health").check()
+========================================================================
+  - INFO: LSP log level : DEBUG
+  - WARNING: Log level DEBUG will cause degraded performance and high disk usage
+  - INFO: Log path: /home/kenji/.cache/nvim/lsp.log
+  - INFO: Log size: 0 KB
+
+vim.treesitter: require("vim.treesitter.health").check()
+========================================================================
+  - INFO: Runtime ABI version : 14
+  - OK: Loaded parser for c: ABI version 13
+  - OK: Loaded parser for lua: ABI version 13
+  - OK: Loaded parser for python: ABI version 13
+  - OK: Loaded parser for rust: ABI version 13
+  - OK: Loaded parser for bash: ABI version 13
+  - OK: Loaded parser for c: ABI version 13
+  - OK: Loaded parser for latex: ABI version 13
+  - OK: Loaded parser for lua: ABI version 13
+  - OK: Loaded parser for nix: ABI version 13
+  - OK: Loaded parser for python: ABI version 13
+  - OK: Loaded parser for rust: ABI version 13
+
+vimtex: health#vimtex#check
+========================================================================
+## VimTeX
+  - OK: Vim version should have full support!
+  - WARNING: bibtex is not executable, so bibtex completions are disabled.
+  - OK: Zathura should work properly!
+  - WARNING: pstree is not available
+    - ADVICE:
+      - vimtex#view#inverse_search is better if pstree is available.
+  - ERROR: |g:vimtex_compiler_method| (`latexmk`) is not executable!
+
