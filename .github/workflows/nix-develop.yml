@@ -5,13 +5,13 @@ name: nix-develop
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - '**.nix'
       - 'flake.lock'
   pull_request:
     branches:
-      - main
+      - master
     paths:
       - '**.nix'
       - 'flake.lock'
@@ -19,7 +19,6 @@ on:
   develop:
     runs-on: ubuntu-latest
     name: "nix develop"
-    environment: cachix
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
