@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: "nix build"
+    name: "build"
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v3
