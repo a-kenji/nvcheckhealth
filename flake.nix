@@ -1,5 +1,5 @@
 {
-  description = "Zellij, a terminal workspace with batteries included";
+  description = "Check nvim's checkhealth output.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
