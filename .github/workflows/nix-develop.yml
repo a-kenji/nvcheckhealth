@@ -25,6 +25,6 @@ on:
         with:
           # Nix Flakes doesn't work on shallow clones
           fetch-depth: 0
-      - uses: cachix/install-nix-action@v18
+      - uses: cachix/install-nix-action@v19
       - run: nix develop --profile devShell
       - run: nix develop .#fmtShell --profile fmtShell
