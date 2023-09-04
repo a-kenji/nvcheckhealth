@@ -57,7 +57,7 @@ def create_headers(_lines):
 def create_section(headers):
     section = {}
 
-    for (header, line) in headers:
+    for header, line in headers:
         if header in section:
             section.get(header).append(line)
         else:
@@ -103,7 +103,7 @@ def create_subsection(section, metadata=True):
 
     if metadata:
         for key in subsection:
-            for (i, item) in enumerate(subsection[key]):
+            for i, item in enumerate(subsection[key]):
                 subsection[key][i] = item_with_metadata(item)
 
     return subsection
@@ -115,7 +115,7 @@ def create_health_report(lines, metadata=True):
     section = create_section(headers)
     section_stripped = strip_section(section)
 
-    for (header, values) in section_stripped.items():
+    for header, values in section_stripped.items():
         checkhealth[header] = create_subsection(values, metadata)
 
     return checkhealth
